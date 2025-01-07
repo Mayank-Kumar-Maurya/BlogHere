@@ -1,0 +1,56 @@
+
+<% layout("/layouts/boilerplate") -%>
+<body>
+ 
+
+      <!-- Main -->
+<div class="imageContainer m-3 d-flex justify-content-center row ">
+ 
+    <!-- <img class=" mainImg col-lg-6 col-md-6 col-sm-12" src="/image.png" alt="Image"> -->
+    <img class=" mainImg col-lg-6 col-md-6 col-sm-12" src="<%= backPhoto.image.url %>" alt="Image">
+   
+    <% if(currUser && (currUser.id===Admin)) {%> <!-- "676eb2b766675867c2439d98"-->
+    <form method="get" action="/blogHere/photo">
+      <button class="btn m-2 " style="padding-left:75% ;"><i class="fa-regular fa-pen-to-square fa-rotate-by fa-xl" style="color: #74C0FC; --fa-rotate-angle: -45deg;"></i></button>
+    </form>
+    <% } %>
+</div>
+
+<hr>
+
+
+<div class="row">
+<% for(let i of allBlog){ %>
+
+<div class="BlogList mb-3 col-lg-3 col-md-6 col-sm-12">
+    <div class="card">
+        <div class="card-header">
+          <form method="get" action="/blogHere/<%= i.id %>/curr">
+             <button class="titleBtn"><i><%= i.title %></i></button>
+        
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+          
+            <p class="About-card"><%= i.about.substring(0,100)  %>...  </p>
+           
+            <footer class="blockquote-footer card-auth-time mt-2">Posted On:  <cite title="Source Title"><%= i.date.toLocaleDateString('en-GB') %></cite></footer>
+            <footer class="blockquote-footer card-auth-time mb-2"><i>Writen By: </i>  <cite title="Source Title"><%= i.owner.username %></cite></footer>
+          </blockquote>
+          <button class="btn btn-danger" style="width: 45%; font-size:small;">Know More</button>
+        </form>
+        </div>
+      </div>
+</div>
+
+<% } %>
+</div>
+
+
+
+
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+      
+</body>
+</html>

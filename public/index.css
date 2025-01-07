@@ -1,0 +1,49 @@
+*{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.navbar-brand{
+    color: pink !important;
+    font-size: 1.5rem;
+}
+/* .heading{
+    margin-left: 35%;
+} */
+.mainImg{
+    border-radius: 2rem;
+  
+}
+/* .imageContainer{
+    
+    background-image: url("./backgroung2.jpg");
+    background-size: contain;
+    border-radius: 2rem;
+    
+} */
+.titleBtn{
+    border: 0;
+    background-color: unset
+}
+.titleBtn :hover{
+ color: purple !important;
+}
+
+/* .NewBlog{
+    margin: 0 8rem 0 8rem;
+    
+} */
+.About-card{
+    color: rgba(0, 0, 0, 0.664);
+    font-size: smaller;
+    font-family:cursive;
+}
+.About-full{
+    font-family: cursive;
+}
+.card-auth-time{
+    font-size: small;
+}
+
+/* rating style */
+.starability-heartbeat > input:hover ~ label {
+    background-position: 0 -30px;
+  }

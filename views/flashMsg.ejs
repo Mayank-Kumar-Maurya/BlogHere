@@ -1,0 +1,29 @@
+<!-- Show Flash Success message  -->
+<% if(successMsg && successMsg.length){ %>
+    <div class="row">
+         
+      <div class="alert alert-success alert-dismissible d-flex align-items-center col-6 offset-3" role="alert">
+        
+          <div>
+            <%= successMsg %>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    
+     </div>
+    <% } %>
+
+    <!-- errorMsg -->
+<% if(errMsg && errMsg.length){ %>
+    <div class="row">
+         
+      <div class="alert alert-danger alert-dismissible d-flex align-items-center col-6 offset-3" role="alert">
+        
+          <div>
+            <%= errMsg %>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    
+     </div>
+    <% } %>

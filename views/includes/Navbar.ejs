@@ -1,0 +1,43 @@
+
+  
+  
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand " href="/blogHere"><i>Blog Here</i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-nav">
+        
+            <a class="nav-link active" aria-current="page" href="/blogHere">Home</a>
+          
+         
+            <form method="get" action="/blogHere/new">
+            <button class="nav-link" >New Blog</button>
+             </form>
+       
+         </div>
+        
+          <div class="navbar-nav ms-auto">
+            <% if(!currUser) {%>
+              <form method="get" action="/blogHere/SignUp"> <button class="btn btn-dark m-1">Sign Up</button></form>
+              <form method="get" action="/blogHere/LogIn"><button class="btn btn-dark m-1">Log In</button></form>
+              <% } 
+                 else if(currUser) { %>
+                  <form method="post" action="/blogHere/LogOut"><button class="btn btn-dark m-1">Log Out</button></form>
+                  <% } %>
+         
+        </div>
+      </div>
+
+     
+     
+      
+      
+    </div>
+
+    
+
+  </nav>

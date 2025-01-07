@@ -1,0 +1,12 @@
+<% layout("/layouts/boilerplate") %>
+
+<body>
+    <h2 class="m-2"><u>Upload Image</u></h2>
+   <div class="container d-flex justify-content-center">
+    <form class="col-lg-3 col-md-6 col-sm-12" method="post" action="/blogHere/photo" enctype="multipart/form-data">
+        <label for="BackImage" class="form-label" >Image</label>
+        <input type="file" class="form-control" name="image" id="BackImage" >
+        <button class="btn btn-success m-3">Upload</button>
+    </form>
+   </div>
+</body>

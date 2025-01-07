@@ -1,0 +1,106 @@
+<% layout("/layouts/boilerplate") %>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/starability-all.min.css"/>
+</head>
+<body>
+<div class="d-flex justify-content-center " style="flex-wrap: wrap;">
+    <div class="card text-center mt-3 " style="width:fit-content;" >
+        <h2 class="mb-3 mt-3"><i><u><%= userBlog.title %></u></i></h2>
+        <div class="card-header">
+          Writen by <i><%= userBlog.owner.username %></i>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"> </h5>
+          <p class="card-text About-full"><%= userBlog.about %></p>
+
+          <% if(currUser && (currUser.id===userBlog.owner.id || currUser.id === Admin ) ){ %> <!-- "676eb2b766675867c2439d98" -->
+          <!-- Edit -->
+        <form class="d-inline" method="get" action="/blogHere/<%= userBlog.id %>/edit" >
+            <button class="btn btn-primary">Edit</button>
+        </form>
+       
+        <!-- Delete -->
+        <form class="d-inline" method="POST" action="/blogHere/<%= userBlog.id %>?_method=DELETE">
+            <button class="btn btn-danger">Delete</button>
+        </form>
+      <% } %>
+        </div>
+        <div class="card-footer text-body-secondary" >
+         Created On: <%= userBlog.date.toLocaleDateString('en-GB') %>
+        </div>
+      </div>
+    
+
+<div class="container mt-5 " >
+  <hr>
+  <h3>Leave a Review</h3>
+<form method="post" action="/blogHere/<%= userBlog.id %>/Review" class="needs-validation" novalidate>
+  <label for="customRange2" class="form-label">Rating</label>
+
+<!-- rating -->
+<div class="d-flex justify-content-center">
+
+  <fieldset class="starability-heartbeat">
+
+    <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="3" checked aria-label="No rating." />
+    <input type="radio" id="first-rate1" name="rating" value="1" />
+    <label for="first-rate1" title="Terrible">1 star</label>
+    <input type="radio" id="first-rate2" name="rating" value="2" />
+    <label for="first-rate2" title="Not good">2 stars</label>
+    <input type="radio" id="first-rate3" name="rating" value="3" />
+    <label for="first-rate3" title="Average">3 stars</label>
+    <input type="radio" id="first-rate4" name="rating" value="4" />
+    <label for="first-rate4" title="Very good">4 stars</label>
+    <input type="radio" id="first-rate5" name="rating" value="5" />
+    <label for="first-rate5" title="Amazing">5 stars</label>
+  </fieldset>
+</div>
+
+<!-- rating end -->
+
+<label for="about" class="form-label">Comment</label> 
+<div class="d-flex justify-content-center" style="flex-wrap: wrap;">
+<textarea class="form-control" name="message" id="Comment" rows="3" style="width:45%;" required></textarea>
+<span class="invalid-feedback">Please write something</span>
+</div>
+<br>
+<button class="btn btn-danger">Post</button>
+</form>
+</div>
+
+
+
+<div class="container row  d-flex justify-content-center mt-3 mb-3">
+  <hr>
+  <h3>Comments</h3>
+<% for(let i of userBlog.review) {%>
+
+  <div class="card col-sm-12 col-md-6 col-lg-3 m-1" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class=" card-title"><i><%= i.author.username %></i></h5>
+      <hr>
+      <!-- rating style -->
+       <div class="d-flex justify-content-center">
+      <p class="starability-result "  data-rating=<%= i.rating  %>></p>
+    </div>
+      <!-- rating end -->
+      <p class="card-text"><%= i.message %></p>
+
+      <!--Edit & delete review  -->
+      <% if(currUser && (currUser.id===i.author.id || currUser.id===Admin)){ %> <!-- "676eb2b766675867c2439d98" -->
+<div class="d-flex" style="justify-content:space-evenly;">
+  <form method="get"  action="/blogHere/<%= i.id %>/<%= userBlog.id %>/reviewEdit">
+    <button class="btn btn-danger">Edit</button>
+  </form>
+  <form method="POST"  action="/blogHere/<%= i.id %>/<%= userBlog.id %>/reviewDelete?_method=DELETE">
+    <button class="btn btn-danger">Delete</button>
+  </form>
+</div>
+<% } %>
+    </div>
+  </div>
+
+<% } %>
+</div>
+</div>
+    </body>

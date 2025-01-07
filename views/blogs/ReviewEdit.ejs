@@ -1,0 +1,43 @@
+<% layout("/layouts/boilerplate") %>
+
+<body>
+    
+<div class="container mt-5 " >
+  
+    <h3><u>Edit Your Review</u></h3>
+  <form method="POST" action="/blogHere/<%= reviewText._id %>/<%= mainId %>/reviewEdit?_method=PATCH">
+    <label for="customRange2" class="form-label">Rating</label>
+  
+  <!-- rating -->
+   
+  <div class="d-flex justify-content-center">
+  
+    <fieldset class="starability-heartbeat">
+  
+      <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="<%= reviewText.rating%>" checked aria-label="No rating." />
+      <input type="radio" id="first-rate1" name="rating" value="1" />
+      <label for="first-rate1" title="Terrible">1 star</label>
+      <input type="radio" id="first-rate2" name="rating" value="2" />
+      <label for="first-rate2" title="Not good">2 stars</label>
+      <input type="radio" id="first-rate3" name="rating" value="3" />
+      <label for="first-rate3" title="Average">3 stars</label>
+      <input type="radio" id="first-rate4" name="rating" value="4" />
+      <label for="first-rate4" title="Very good">4 stars</label>
+      <input type="radio" id="first-rate5" name="rating" value="5" />
+      <label for="first-rate5" title="Amazing">5 stars</label>
+    </fieldset>
+  </div>
+  
+  <!-- rating end -->
+  
+  <label for="about" class="form-label">Comment</label> 
+  <div class="d-flex justify-content-center">
+   
+  <textarea class="form-control" name="message" id="Comment" rows="3" style="width:45%;" required><%= reviewText.message %></textarea>
+  </div>
+  <br>
+  <button class="btn btn-danger">Post</button>
+  </form>
+  </div>
+  
+</body>
