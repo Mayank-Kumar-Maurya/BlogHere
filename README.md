@@ -1,4 +1,4 @@
-The is build using - Node.js, MongoDB, Express.js, EJS, Passport, JOI, Flash, Bootstrap.
+This project is build using - Node.js, MongoDB, Express.js, EJS, Passport, JOI, Flash, Bootstrap.
 
 LINK OF PROJECT(BlogHere) WEBSITE = https://bloghere-ms8p.onrender.com/blogHere
 
