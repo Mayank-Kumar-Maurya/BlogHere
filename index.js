@@ -165,7 +165,7 @@ app.post("/blogHere",isLoggedIn,validateBlog,asyncWrap(async(req,res,next)=>
         // console.log(req.body);
     let {title,about}=req.body;
     let RegisteredUserId=req.user._id;
-        console.log(RegisteredUserId);
+        // console.log(RegisteredUserId);
     let newBlog=new Blog({
         title:title,
         about:about,

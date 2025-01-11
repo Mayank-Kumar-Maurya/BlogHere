@@ -5,13 +5,13 @@
 <body>
 <div class="d-flex justify-content-center " style="flex-wrap: wrap;">
     <div class="card text-center mt-3 " style="width:fit-content;" >
-        <h2 class="mb-3 mt-3"><i><u><%= userBlog.title %></u></i></h2>
+        <h2 class="mb-3 mt-3" style="font-size: x-large; color:lightseagreen" ><i><u><%= userBlog.title %></u></i></h2>
         <div class="card-header">
           Writen by <i><%= userBlog.owner.username %></i>
         </div>
         <div class="card-body">
           <h5 class="card-title"> </h5>
-          <p class="card-text About-full"><%= userBlog.about %></p>
+          <pre class="card-text About-full" style="text-align:left; white-space:break-spaces;"><%= userBlog.about %></pre>
 
           <% if(currUser && (currUser.id===userBlog.owner.id || currUser.id === Admin ) ){ %> <!-- "676eb2b766675867c2439d98" -->
           <!-- Edit -->
