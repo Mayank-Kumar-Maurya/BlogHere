@@ -37,7 +37,8 @@
     font-family:cursive;
 }
 .About-full{
-    font-family: cursive;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: medium;
 }
 .card-auth-time{
     font-size: small;

@@ -5,15 +5,15 @@
 <body>
 <div class="d-flex justify-content-center " style="flex-wrap: wrap;">
     <div class="card text-center mt-3 " style="width:fit-content;" >
-        <h2 class="mb-3 mt-3" style="font-size: x-large; color:lightseagreen" ><i><u><%= userBlog.title %></u></i></h2>
+        <h2 class="mb-3 mt-3 ps-4 pe-4" style="font-size: x-large; color:lightseagreen" ><i><u><%= userBlog.title %></u></i></h2>
         <div class="card-header">
           Writen by <i><%= userBlog.owner.username %></i>
         </div>
         <div class="card-body">
           <h5 class="card-title"> </h5>
-          <pre class="card-text About-full" style="text-align:left; white-space:break-spaces;"><%= userBlog.about %></pre>
+          <pre class="card-text About-full" style="text-align: justify; white-space:break-spaces;"><%= userBlog.about %></pre>
 
-          <% if(currUser && (currUser.id===userBlog.owner.id || currUser.id === Admin ) ){ %> <!-- "676eb2b766675867c2439d98" -->
+          <% if(currUser && (currUser.id===userBlog.owner.id || currUser.id === Admin ) ){ %> 
           <!-- Edit -->
         <form class="d-inline" method="get" action="/blogHere/<%= userBlog.id %>/edit" >
             <button class="btn btn-primary">Edit</button>
@@ -87,7 +87,7 @@
       <p class="card-text"><%= i.message %></p>
 
       <!--Edit & delete review  -->
-      <% if(currUser && (currUser.id===i.author.id || currUser.id===Admin)){ %> <!-- "676eb2b766675867c2439d98" -->
+      <% if(currUser && (currUser.id===i.author.id || currUser.id===Admin)){ %> 
 <div class="d-flex" style="justify-content:space-evenly;">
   <form method="get"  action="/blogHere/<%= i.id %>/<%= userBlog.id %>/reviewEdit">
     <button class="btn btn-danger">Edit</button>

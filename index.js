@@ -110,12 +110,18 @@ app.use((req,res,next)=>
 //     res.send("review save");
 // });
 
+
+app.get("/", (req, res) =>
+{
+    res.redirect('/blogHere');
+});
 // home 
 app.get("/blogHere",asyncWrap(async(req,res)=>
 {
     let backPhoto=await Photo.findOne();
     // console.log("backPhoto",backPhoto);
     let allBlog=await Blog.find().populate("owner");
+    allBlog.reverse();
     res.render("index.ejs",{allBlog,backPhoto});
 }));
 
@@ -359,10 +365,10 @@ app.delete("/blogHere/:id/:mainId/reviewDelete",isLoggedIn, isReviewOwner, async
 app.get("/demoUser", async(req,res)=>
 {
     let NewUser=new User({
-        email: "jaadu1234@gmail.com",
-        username: "jaadu",
+        email: "emailaddress@xxxxx.com",
+        username: "xxxxx",
     });
-    let RegisterdUser=await User.register(NewUser, "jaadu@1234");
+    let RegisterdUser=await User.register(NewUser, "xxxxxxxxxxxxxx");
     res.send(RegisterdUser);
 });
 
